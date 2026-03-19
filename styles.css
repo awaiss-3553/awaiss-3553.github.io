@@ -196,14 +196,19 @@ nav {
 }
 
 /* ============ HERO SECTION ============ */
+
 .hero {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: rgb(6, 6, 6);
     padding: 100px 20px;
     text-align: center;
     animation: fadeIn 1s ease-in;
     position: relative;
     overflow: hidden;
+}
+
+/* Dark Mode - Hero Background */
+html[data-theme="dark"] .hero {
+    background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
 }
 
 .hero::before {
@@ -237,27 +242,44 @@ nav {
     z-index: 1;
 }
 
+/* Hero Main Title */
 .hero h1 {
     font-size: 4rem;
     margin-bottom: 10px;
     animation: slideInUp 0.8s ease-out;
     font-weight: 800;
+    color: #1f2937;              /* Light Mode - Dark Text */
 }
 
+html[data-theme="dark"] .hero h1 {
+    color: #ffffff;              /* Dark Mode - White Text */
+}
+
+/* Hero Subtitle */
 .hero .subtitle {
     font-size: 2rem;
     margin-bottom: 20px;
-    color: rgba(6, 6, 6, 0.9);
     animation: slideInUp 0.8s ease-out 0.2s backwards;
+    color: #374151;              /* Light Mode - Dark Gray */
 }
 
+html[data-theme="dark"] .hero .subtitle {
+    color: #e5e7eb;              /* Dark Mode - Light Gray */
+}
+
+/* Hero Title/Tagline */
 .hero .title {
     font-size: 1.5rem;
-    color: rgba(7, 7, 7, 0.8);
     margin-bottom: 30px;
     animation: slideInUp 0.8s ease-out 0.4s backwards;
+    color: #4b5563;              /* Light Mode - Medium Dark */
 }
 
+html[data-theme="dark"] .hero .title {
+    color: #d1d5db;              /* Dark Mode - Light Gray */
+}
+
+/* CTA Buttons */
 .cta-button {
     display: inline-block;
     background: white;
@@ -272,11 +294,23 @@ nav {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
+html[data-theme="dark"] .cta-button {
+    background: #2c3e50;
+    color: #3498db;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
 .cta-button:hover {
     transform: translateY(-3px);
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
     background: #ffd700;
     color: #667eea;
+}
+
+html[data-theme="dark"] .cta-button:hover {
+    background: #3498db;
+    color: white;
+    box-shadow: 0 15px 40px rgba(52, 152, 219, 0.3);
 }
 
 /* ============ CONTAINER ============ */
@@ -949,6 +983,330 @@ footer {
     }
 
     .about-text p {
+        font-size: 0.95rem;
+    }
+}
+/* ============ DARK MODE STYLES ============ */
+
+html[data-theme="dark"] {
+    --text: #e5e7eb;
+    --text-light: #9ca3af;
+    --bg: #1f2937;
+    --card-bg: #2c3e50;
+    --border: #374151;
+}
+
+html[data-theme="dark"] body {
+    background: linear-gradient(135deg, #1f2937 0%, #0f172a 100%);
+    color: var(--text);
+}
+
+html[data-theme="dark"] header {
+    background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+}
+
+html[data-theme="dark"] section:nth-child(odd) {
+    background: #1f2937;
+}
+
+html[data-theme="dark"] section:nth-child(even) {
+    background: #111827;
+}
+
+html[data-theme="dark"] .timeline-content,
+html[data-theme="dark"] .skill-card,
+html[data-theme="dark"] .experience-card,
+html[data-theme="dark"] .language-item,
+html[data-theme="dark"] .contact-info,
+html[data-theme="dark"] .about-highlight {
+    background: #2c3e50;
+    color: var(--text);
+}
+
+html[data-theme="dark"] .experience-list li,
+html[data-theme="dark"] .skill-items li,
+html[data-theme="dark"] .progress-bar {
+    color: var(--text-light);
+    background: #374151;
+}
+
+html[data-theme="dark"] footer {
+    background: linear-gradient(135deg, #0f172a 0%, #1f2937 100%);
+}
+
+html[data-theme="dark"] .progress-bar {
+    background: #374151;
+}
+
+/* ============ THEME TOGGLE BUTTON ============ */
+
+.theme-toggle {
+    background: none;
+    border: 2px solid white;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1.3rem;
+    transition: all 0.3s ease;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1) rotate(20deg);
+}
+
+.theme-icon {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover .theme-icon {
+    transform: rotate(360deg);
+}
+
+@media (max-width: 768px) {
+    .theme-toggle {
+        margin-left: 10px;
+        padding: 8px 10px;
+        font-size: 1.1rem;
+    }
+}
+
+/* ============ SCROLL TO TOP BUTTON ============ */
+
+.scroll-top-btn {
+    position: fixed;
+    bottom: -60px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(37, 99, 235, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.scroll-top-btn.show {
+    bottom: 30px;
+}
+
+.scroll-top-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(37, 99, 235, 0.5);
+}
+
+@media (max-width: 480px) {
+    .scroll-top-btn {
+        width: 45px;
+        height: 45px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 20px;
+    }
+
+    .scroll-top-btn.show {
+        bottom: 20px;
+    }
+}
+
+/* ============ CONTACT FORM STYLES ============ */
+
+.contact-form-container {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    margin: 30px 0;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+html[data-theme="dark"] .contact-form-container {
+    background: #2c3e50;
+}
+
+.contact-form-container h3 {
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+    color: var(--primary);
+    text-align: center;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.form-input {
+    padding: 15px;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    background: white;
+    color: var(--text);
+}
+
+html[data-theme="dark"] .form-input {
+    background: #1f2937;
+    color: var(--text);
+    border-color: #374151;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.form-input::placeholder {
+    color: var(--text-light);
+}
+
+textarea.form-input {
+    resize: vertical;
+    min-height: 120px;
+    font-family: inherit;
+}
+
+.error-message {
+    font-size: 0.85rem;
+    color: #ef4444;
+    margin-top: 5px;
+    display: none;
+}
+
+.error-message:not(:empty) {
+    display: block;
+}
+
+.form-input.error {
+    border-color: #ef4444;
+}
+
+.submit-btn {
+    padding: 15px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.2);
+}
+
+.submit-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
+}
+
+.submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.form-message {
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+    display: none;
+}
+
+.form-message:not(:empty) {
+    display: block;
+}
+
+.form-message.success {
+    background: #d1fae5;
+    color: #065f46;
+    border: 1px solid #6ee7b7;
+}
+
+.form-message.error {
+    background: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fca5a5;
+}
+
+html[data-theme="dark"] .form-message.success {
+    background: rgba(16, 185, 129, 0.2);
+    border-color: #10b981;
+}
+
+html[data-theme="dark"] .form-message.error {
+    background: rgba(239, 68, 68, 0.2);
+    border-color: #ef4444;
+}
+
+/* ============ SCROLL ANIMATION ELEMENTS ============ */
+
+.observe-element {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease;
+}
+
+.observe-element.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ============ PAGE LOAD ANIMATION ============ */
+
+body.loaded {
+    animation: pageLoad 0.3s ease;
+}
+
+@keyframes pageLoad {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* ============ RESPONSIVE ADJUSTMENTS ============ */
+
+@media (max-width: 768px) {
+    .theme-toggle {
+        order: 3;
+    }
+
+    .contact-form-container {
+        padding: 25px;
+    }
+
+    .form-input {
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    .submit-btn {
+        padding: 12px;
         font-size: 0.95rem;
     }
 }

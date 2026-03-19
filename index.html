@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top-btn" id="scrollTopBtn">
+        <span>↑</span>
+    </button>
+
     <!-- Header/Navigation -->
     <header>
         <nav>
@@ -23,6 +28,9 @@
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <button class="theme-toggle" id="themeToggle" title="Toggle Dark Mode">
+                <span class="theme-icon">🌙</span>
+            </button>
         </nav>
     </header>
 
@@ -140,7 +148,7 @@
                         <div class="progress-item">
                             <div class="progress-label">
                                 <span class="progress-name">Proficiency</span>
-                                <span class="progress-percent">85%</span>
+                                <span class="progress-percent" data-target="85">0%</span>
                             </div>
                             <div class="progress-bar">
                                 <div class="progress-fill" style="--skill-width: 85%; animation-delay: 0.2s;"></div>
@@ -163,7 +171,7 @@
                         <div class="progress-item">
                             <div class="progress-label">
                                 <span class="progress-name">Proficiency</span>
-                                <span class="progress-percent">88%</span>
+                                <span class="progress-percent" data-target="88">0%</span>
                             </div>
                             <div class="progress-bar">
                                 <div class="progress-fill" style="--skill-width: 88%; animation-delay: 0.4s;"></div>
@@ -186,7 +194,7 @@
                         <div class="progress-item">
                             <div class="progress-label">
                                 <span class="progress-name">Proficiency</span>
-                                <span class="progress-percent">82%</span>
+                                <span class="progress-percent" data-target="82">0%</span>
                             </div>
                             <div class="progress-bar">
                                 <div class="progress-fill" style="--skill-width: 82%; animation-delay: 0.6s;"></div>
@@ -209,7 +217,7 @@
                         <div class="progress-item">
                             <div class="progress-label">
                                 <span class="progress-name">Proficiency</span>
-                                <span class="progress-percent">75%</span>
+                                <span class="progress-percent" data-target="75">0%</span>
                             </div>
                             <div class="progress-bar">
                                 <div class="progress-fill" style="--skill-width: 75%; animation-delay: 0.8s;"></div>
@@ -232,7 +240,7 @@
                         <div class="progress-item">
                             <div class="progress-label">
                                 <span class="progress-name">Proficiency</span>
-                                <span class="progress-percent">70%</span>
+                                <span class="progress-percent" data-target="70">0%</span>
                             </div>
                             <div class="progress-bar">
                                 <div class="progress-fill" style="--skill-width: 70%; animation-delay: 1s;"></div>
@@ -255,7 +263,7 @@
                         <div class="progress-item">
                             <div class="progress-label">
                                 <span class="progress-name">Proficiency</span>
-                                <span class="progress-percent">80%</span>
+                                <span class="progress-percent" data-target="80">0%</span>
                             </div>
                             <div class="progress-bar">
                                 <div class="progress-fill" style="--skill-width: 80%; animation-delay: 1.2s;"></div>
@@ -320,6 +328,48 @@
                     </div>
                 </div>
 
+                <!-- Contact Form -->
+                <div class="contact-form-container">
+                    <h3>Send Me a Message</h3>
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <input 
+                                type="text" 
+                                id="name" 
+                                placeholder="Your Name" 
+                                required
+                                class="form-input"
+                            >
+                            <span class="error-message" id="nameError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <input 
+                                type="email" 
+                                id="email" 
+                                placeholder="Your Email" 
+                                required
+                                class="form-input"
+                            >
+                            <span class="error-message" id="emailError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <textarea 
+                                id="message" 
+                                placeholder="Your Message" 
+                                rows="5" 
+                                required
+                                class="form-input"
+                            ></textarea>
+                            <span class="error-message" id="messageError"></span>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Send Message</button>
+                        <div class="form-message" id="formMessage"></div>
+                    </form>
+                </div>
+
                 <div class="contact-buttons">
                     <a href="mailto:awaiss3553@gmail.com" class="contact-btn email">
                         📧 Send Email
@@ -354,35 +404,7 @@
         <p class="footer-text">Crafted with ❤️ | Available for opportunities</p>
     </footer>
 
-    <script>
-        // Hamburger Menu Toggle
-        const hamburger = document.getElementById('hamburger');
-        const navLinks = document.getElementById('navLinks');
-
-        hamburger.addEventListener('click', function() {
-            navLinks.classList.toggle('active');
-            hamburger.classList.toggle('active');
-        });
-
-        // Close menu when a link is clicked
-        const navItems = navLinks.querySelectorAll('a');
-        navItems.forEach(item => {
-            item.addEventListener('click', function() {
-                navLinks.classList.remove('active');
-                hamburger.classList.remove('active');
-            });
-        });
-
-        // Close menu when clicking outside
-        document.addEventListener('click', function(event) {
-            const isClickInsideNav = navLinks.contains(event.target);
-            const isClickInsideHamburger = hamburger.contains(event.target);
-            
-            if (!isClickInsideNav && !isClickInsideHamburger) {
-                navLinks.classList.remove('active');
-                hamburger.classList.remove('active');
-            }
-        });
-    </script>
+    <!-- JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>
