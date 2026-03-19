@@ -110,7 +110,7 @@ body {
 /* ============ HEADER/NAVIGATION ============ */
 header {
     background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
-    color: rgb(13, 13, 13);
+    color: white;
     padding: 20px 0;
     position: sticky;
     top: 0;
@@ -167,10 +167,38 @@ nav {
     width: 100%;
 }
 
+/* ============ HAMBURGER MENU ============ */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 6px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(10px, 10px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(8px, -8px);
+}
+
 /* ============ HERO SECTION ============ */
 .hero {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: rgb(12, 12, 12);
+    color: rgb(6, 6, 6);
     padding: 100px 20px;
     text-align: center;
     animation: fadeIn 1s ease-in;
@@ -219,13 +247,13 @@ nav {
 .hero .subtitle {
     font-size: 2rem;
     margin-bottom: 20px;
-    color: rgba(2, 2, 2, 0.9);
+    color: rgba(6, 6, 6, 0.9);
     animation: slideInUp 0.8s ease-out 0.2s backwards;
 }
 
 .hero .title {
     font-size: 1.5rem;
-    color: rgba(9, 9, 9, 0.8);
+    color: rgba(7, 7, 7, 0.8);
     margin-bottom: 30px;
     animation: slideInUp 0.8s ease-out 0.4s backwards;
 }
@@ -754,6 +782,47 @@ footer {
 
 /* ============ RESPONSIVE DESIGN ============ */
 @media (max-width: 768px) {
+    /* Show Hamburger Menu */
+    .hamburger {
+        display: flex;
+    }
+
+    /* Hide nav links by default on mobile */
+    .nav-links {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+        flex-direction: column;
+        padding: 20px;
+        gap: 15px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    /* Show nav links when active */
+    .nav-links.active {
+        max-height: 300px;
+    }
+
+    .nav-links li {
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 10px 0;
+    }
+
+    .nav-links li:last-child {
+        border-bottom: none;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 10px 0;
+    }
+
+    /* Hero adjustments */
     .hero h1 {
         font-size: 2.5rem;
     }
@@ -762,10 +831,12 @@ footer {
         font-size: 1.3rem;
     }
 
+    /* About section */
     .about-container {
         grid-template-columns: 1fr;
     }
 
+    /* Timeline adjustments */
     .timeline::before {
         left: 20px;
     }
@@ -781,19 +852,17 @@ footer {
         left: 20px;
     }
 
-    .nav-links {
-        gap: 15px;
-        font-size: 0.9rem;
-    }
-
+    /* Section titles */
     .section-title {
         font-size: 2rem;
     }
 
+    /* Skills grid */
     .skills-grid {
         grid-template-columns: 1fr;
     }
 
+    /* Contact buttons */
     .contact-buttons {
         flex-direction: column;
     }
@@ -801,6 +870,12 @@ footer {
     .contact-btn {
         width: 100%;
         justify-content: center;
+    }
+
+    /* Experience card */
+    .experience-header {
+        flex-direction: column;
+        gap: 10px;
     }
 }
 
@@ -810,14 +885,17 @@ footer {
     }
 
     nav {
-        flex-direction: column;
-        gap: 15px;
+        flex-direction: row;
+        justify-content: space-between;
     }
 
-    .nav-links {
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
+    .logo {
+        font-size: 20px;
+    }
+
+    .hamburger span {
+        width: 20px;
+        height: 2.5px;
     }
 
     .hero {
@@ -830,6 +908,16 @@ footer {
 
     .hero .subtitle {
         font-size: 1.1rem;
+    }
+
+    .hero .title {
+        font-size: 1rem;
+    }
+
+    .cta-button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        margin: 8px;
     }
 
     section {
@@ -850,5 +938,17 @@ footer {
 
     .contact-info {
         padding: 20px;
+    }
+
+    .about-highlight {
+        padding: 20px;
+    }
+
+    .about-text h2 {
+        font-size: 1.5rem;
+    }
+
+    .about-text p {
+        font-size: 0.95rem;
     }
 }

@@ -11,7 +11,12 @@
     <header>
         <nav>
             <div class="logo">MA</div>
-            <ul class="nav-links">
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
                 <li><a href="#about">About</a></li>
                 <li><a href="#education">Education</a></li>
                 <li><a href="#experience">Experience</a></li>
@@ -309,7 +314,8 @@
                     <div class="contact-item">
                         <div class="contact-icon">📍</div>
                         <div class="contact-details">
-                            
+                            <span class="contact-label">Location</span>
+                            <span class="contact-value">Ayub Road, Behind LGH, Lahore</span>
                         </div>
                     </div>
                 </div>
@@ -320,6 +326,9 @@
                     </a>
                     <a href="tel:+923087222159" class="contact-btn phone">
                         📱 Call Me
+                    </a>
+                    <a href="https://maps.google.com/?q=Ayub+Road,+Lahore" target="_blank" class="contact-btn location">
+                        📍 Get Directions
                     </a>
                 </div>
 
@@ -344,5 +353,36 @@
         <p class="footer-text">© 2026 Muhammad Awais. All rights reserved. | Software Engineering Student | Sales Professional</p>
         <p class="footer-text">Crafted with ❤️ | Available for opportunities</p>
     </footer>
-</body>ss
+
+    <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked
+        const navItems = navLinks.querySelectorAll('a');
+        navItems.forEach(item => {
+            item.addEventListener('click', function() {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const isClickInsideNav = navLinks.contains(event.target);
+            const isClickInsideHamburger = hamburger.contains(event.target);
+            
+            if (!isClickInsideNav && !isClickInsideHamburger) {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+            }
+        });
+    </script>
+</body>
 </html>
