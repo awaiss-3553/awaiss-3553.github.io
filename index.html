@@ -3,12 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Muhammad Awais portfolio - Software Engineering student and sales professional showcasing experience, skills, and contact information.">
+    <meta name="theme-color" content="#0b1120">
+    <meta property="og:title" content="Muhammad Awais - Portfolio">
+    <meta property="og:description" content="Software Engineering Student | Sales Professional">
+    <meta property="og:type" content="website">
     <title>Muhammad Awais - Portfolio</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Scroll to Top Button -->
-    <button class="scroll-top-btn" id="scrollTopBtn">
+    <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top">
         <span>↑</span>
     </button>
 
@@ -16,7 +21,7 @@
     <header>
         <nav>
             <div class="logo">MA</div>
-            <div class="hamburger" id="hamburger">
+            <div class="hamburger" id="hamburger" role="button" tabindex="0" aria-label="Toggle navigation menu" aria-controls="navLinks" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -28,7 +33,7 @@
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <button class="theme-toggle" id="themeToggle" title="Toggle Dark Mode">
+            <button class="theme-toggle" id="themeToggle" title="Toggle Dark Mode" aria-label="Toggle dark mode">
                 <span class="theme-icon">🌙</span>
             </button>
         </nav>
@@ -41,7 +46,7 @@
             <p class="subtitle">Awais</p>
             <p class="title">Software Engineering Student | Sales Professional</p>
             <a href="#contact" class="cta-button">Get In Touch</a>
-            <a href="#about" class="cta-button">Learn More</a>
+            <a href="#about" class="cta-button cta-secondary">Learn More</a>
         </div>
     </section>
 
@@ -375,10 +380,10 @@
                 </div>
 
                 <div class="social-links" style="margin-top: 30px;">
-                    <a href="#" class="social-link" title="LinkedIn">💼</a>
-                    <a href="#" class="social-link" title="GitHub">🐙</a>
-                    <a href="#" class="social-link" title="Twitter">𝕏</a>
-                    <a href="#" class="social-link" title="Instagram">📸</a>
+                    <a href="#" class="social-link" title="LinkedIn" aria-label="LinkedIn profile">💼</a>
+                    <a href="#" class="social-link" title="GitHub" aria-label="GitHub profile">🐙</a>
+                    <a href="#" class="social-link" title="Twitter" aria-label="Twitter profile">𝕏</a>
+                    <a href="#" class="social-link" title="Instagram" aria-label="Instagram profile">📸</a>
                 </div>
             </div>
         </div>
@@ -387,10 +392,10 @@
     <!-- Footer -->
     <footer>
         <div class="social-links">
-            <a href="#" class="social-link" title="LinkedIn">💼</a>
-            <a href="#" class="social-link" title="GitHub">🐙</a>
-            <a href="#" class="social-link" title="Twitter">𝕏</a>
-            <a href="#" class="social-link" title="Instagram">📸</a>
+            <a href="#" class="social-link" title="LinkedIn" aria-label="LinkedIn profile">💼</a>
+            <a href="#" class="social-link" title="GitHub" aria-label="GitHub profile">🐙</a>
+            <a href="#" class="social-link" title="Twitter" aria-label="Twitter profile">𝕏</a>
+            <a href="#" class="social-link" title="Instagram" aria-label="Instagram profile">📸</a>
         </div>
         <p class="footer-text">© 2026 Muhammad Awais. All rights reserved. | Software Engineering Student | Sales Professional</p>
         <p class="footer-text">Crafted with ❤️ | Available for opportunities</p>
